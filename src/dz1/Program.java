@@ -6,17 +6,17 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Product  product1 = new Product("Brand #1", "Name #1", 350);
+        Product  product1 = new Product("Алёнушка", 200, 350);
         System.out.println(product1.displayInfo());
 
         product1.setPrice(-1400);
-        product1.setName("~");
+        product1.setCalorie(150);
         System.out.println(product1.displayInfo());
 
-        Chocolate chocolate1 = new Chocolate("Brand #2", "Name #2", 210, 0.5);
+        Chocolate chocolate1 = new Chocolate("Лева", 1000, 210.90, 500);
         System.out.println(chocolate1.displayInfo());
 
-        Product chocolate2 = new Chocolate("Brand #2", "Name #2", 210, 0.5);
+        Product chocolate2 = new Chocolate("Алёнушка", 800, 150.90, 200);
         System.out.println(chocolate2.displayInfo());
 
         ArrayList<Product> list = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Program {
         list.add(chocolate2);
 
         VendingMachine vendingMachine = new VendingMachine(list);
-        Chocolate chocolateRes =  vendingMachine.getChocolate("Name #2", 1.5);
+        Chocolate chocolateRes =  vendingMachine.getChocolate(800, 200);
         if (chocolateRes != null){
             System.out.println("Вы купили: ");
             System.out.println(chocolateRes.displayInfo());

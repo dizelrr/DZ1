@@ -9,11 +9,11 @@ public class VendingMachine {
     public VendingMachine(List<Product> products){
         this.products = products;
     }
-    public Chocolate getChocolate(String name, double volume){
+    public Chocolate getChocolate(double calorie, double mass){
         for (Product product : products){
             if (product instanceof Chocolate){
                 Chocolate chocolate = (Chocolate)product;
-                if (chocolate.getName().equals(name) && chocolate.getVolume() == volume)
+                if (chocolate.getCalorie() == calorie && chocolate.getMass() == mass)
                     return chocolate;
             }
         }

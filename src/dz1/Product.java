@@ -1,18 +1,17 @@
 package dz1;
 public class Product {
 
-    protected String name;
+    protected double calorie;
 
     protected String brand;
 
     protected double price;
 
-    public String getName() {
-        return name;
+    public double getCalorie() {return calorie;
     }
 
-    public void setName(String name) {
-        processName(name);
+    public void setCalorie(double calorie) {
+        processCalorie(calorie);
     }
 
     public String getBrand() {
@@ -40,14 +39,16 @@ public class Product {
         }
     }
 
-    private void processName(String name){
-        if (name == null || name.length() < 3){
-            this.name = "<NAME>";
+    private void processCalorie(double calorie){
+        if (calorie < 100){
+            this.calorie = 250;
         }
         else {
-            this.name = name;
+            this.calorie = calorie;
         }
     }
+
+
     private void processBrand(String brand){
         if (brand == null || brand.length() < 3){
             this.brand = "<BRAND>";
@@ -57,24 +58,24 @@ public class Product {
         }
     }
 
-    public Product(String brand, String name, double price){
+    public Product(String brand, double calorie, double price){
         processBrand(brand);
-        processName(name);
+        processCalorie(calorie);
         processPrice(price);
     }
 
-    public Product(String name, double price){
-        this("<BRAND>", name, price);
+    public Product(double calorie, double price){
+        this("<BRAND>", calorie, price);
 
     }
 
-    public Product(String name){
-        this(name, 250);
+    public Product(double calorie){
+        this(calorie, 250);
 
     }
 
     public String displayInfo(){
-        return String.format("%s - %s - %.2f", brand, name, price);
+        return String.format("%s - %.2f - %.2f", brand, calorie, price);
     }
 
 
